@@ -1,6 +1,15 @@
+import ListaDeNotas from "./components/ListaDeNotas.jsx";
+
 function App() {
   return (
-<h1>Meu React App</h1>
+    <section>
+      <form>
+        <input type="text" placeholder="Título"></input>
+        <textarea placeholder="Escreva sua nota..."></textarea>
+        <button>Criar Nota</button>
+      </form>
+      <ListaDeNotas />
+    </section>
   );
 }
 
