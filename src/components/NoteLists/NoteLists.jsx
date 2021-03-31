@@ -1,6 +1,6 @@
 import React from "react";
-import CardNota from "../CardNota";
-import "./estilo.css";
+import NoteCard from "../NoteCard";
+import "./style.css";
 import { useSelector } from "react-redux";
 
 function noteGenerator(result) {
@@ -8,15 +8,14 @@ function noteGenerator(result) {
     result.map(
       (result, index) => {
         return (<li className="lista-notas_item" key={index}>
-          <CardNota title={result.title} text={result.text} />
+          <NoteCard title={result.title} text={result.text} />
         </li>)
       })
-  )
+  );
 }
 
-function ListaDeNotas() {
-
-  const result = useSelector(state => state.salvarNota);
+function NoteLists() {
+  const result = useSelector(state => state.saveNote);
 
   return (<ul className="lista-notas">
     {noteGenerator(result)}
@@ -24,4 +23,4 @@ function ListaDeNotas() {
   );
 }
 
-export default ListaDeNotas;
+export default NoteLists;

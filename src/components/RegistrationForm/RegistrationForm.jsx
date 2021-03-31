@@ -1,10 +1,9 @@
-import "./estilo.css";
+import "./style.css";
 import { useDispatch } from 'react-redux';
-import { Salvar } from '../../store/SalvarNota/SalvarNota.actions'
+import { Save } from '../../store/SaveNote/SaveNote.actions'
 import { useState } from "react";
 
-function FormularioCadastro() {
-
+function RegistrationForm() {
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
@@ -14,9 +13,7 @@ function FormularioCadastro() {
     setText('');
   }
 
-
   return (
-
     <form className="form-cadastro">
       <input
         type="text"
@@ -38,7 +35,7 @@ function FormularioCadastro() {
       />
       <button className="form-cadastro_input form-cadastro_submit" onClick={(e) => {
         e.preventDefault();
-        dispatch(Salvar(title, text))
+        dispatch(Save(title, text))
         clearNote();
       }}>
         Criar Nota
@@ -47,4 +44,4 @@ function FormularioCadastro() {
   );
 }
 
-export default FormularioCadastro;
+export default RegistrationForm;
