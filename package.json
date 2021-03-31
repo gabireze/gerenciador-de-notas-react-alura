@@ -1,6 +1,6 @@
 {
-  "homepage": "http://gabireze.github.io/gerenciador-de-notas-react",
-  "name": "gerenciador-de-notas-react",
+  "homepage": "http://gabireze.github.io/gerenciador-de-notas-react-alura",
+  "name": "gerenciador-de-notas-react-alura",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
