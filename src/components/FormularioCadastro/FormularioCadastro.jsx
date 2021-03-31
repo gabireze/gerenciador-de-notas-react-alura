@@ -1,50 +1,50 @@
-import React, { Component } from "react";
 import "./estilo.css";
-class FormularioCadastro extends Component {
+import { useDispatch } from 'react-redux';
+import { Salvar } from '../../store/SalvarNota/SalvarNota.actions'
+import { useState } from "react";
 
-  constructor(props) {
-    super(props);
-    this.titulo = "";
-    this.texto = "";
+function FormularioCadastro() {
+
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+
+  function clearNote() {
+    setTitle('');
+    setText('');
   }
 
-  _handleMudancaTitulo(evento) {
-    evento.stopPropagation();
-    this.titulo = evento.target.value;
-  }
 
-  _handleMudancaTexto(evento) {
-    evento.stopPropagation();
-    this.texto = evento.target.value;
-  }
+  return (
 
-  _criarNota(evento) {
-    evento.preventDefault();
-    evento.stopPropagation();
-    this.props.criarNota(this.titulo, this.texto);
-  }
-
-  render() {
-    return (
-      <form className="form-cadastro" onSubmit={this._criarNota.bind(this)}>
-        <input
-          type="text"
-          placeholder="Título"
-          className="form-cadastro_input"
-          onChange={this._handleMudancaTitulo.bind(this)}
-        />
-        <textarea
-          rows={15}
-          placeholder="Escreva sua nota..."
-          className="form-cadastro_input"
-          onChange={this._handleMudancaTexto.bind(this)}
-        />
-        <button className="form-cadastro_input form-cadastro_submit">
-          Criar Nota
-        </button>
-      </form>
-    );
-  }
+    <form className="form-cadastro">
+      <input
+        type="text"
+        placeholder="Título"
+        className="form-cadastro_input"
+        value={title}
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+      />
+      <textarea
+        rows={15}
+        placeholder="Nota"
+        className="form-cadastro_input"
+        value={text}
+        onChange={(e) => {
+          setText(e.target.value);
+        }}
+      />
+      <button className="form-cadastro_input form-cadastro_submit" onClick={(e) => {
+        e.preventDefault();
+        dispatch(Salvar(title, text))
+        clearNote();
+      }}>
+        Criar Nota
+      </button>
+    </form>
+  );
 }
 
 export default FormularioCadastro;
