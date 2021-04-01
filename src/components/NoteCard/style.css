@@ -12,8 +12,9 @@
 .card-nota_cabecalho {
   font-size: 1.1em;
   display: flex;
+  width: 100%;
   justify-content: space-between;
-  align-items: center;
+  align-items: initial;
 }
 
 .card-nota_text {
@@ -25,3 +26,13 @@
   font-size: 1.2em;
   margin-right: 12px;
 }
+
+.card-nota_button {
+  font-size: 0.5em;
+  height: fit-content;
+  /* border: none; */
+  padding: 0.3em;
+  /* position:absolute; */
+  /* background-color: blue; */
+}
+

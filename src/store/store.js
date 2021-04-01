@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import saveNoteReducer from './SaveNote/SaveNote.reducer'
+import notesReducer from './Notes/Notes.reducer'
 
 const rootReducer = combineReducers({
-  saveNote: saveNoteReducer,
+  notes: notesReducer,
 })
 
 const store = createStore(rootReducer);
